@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1094989682019",
+    "firebase_url": "https://bucket-list-app-2c16f.firebaseio.com",
+    "project_id": "bucket-list-app-2c16f",
+    "storage_bucket": "bucket-list-app-2c16f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1094989682019:android:3da45e01bcb404a9",
+        "android_client_info": {
+          "package_name": "com.example.ftavakoli.bucketlistapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1094989682019-gf5j28n5hnl5ntekfcnost2c8l37gnjc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ftavakoli.bucketlistapp",
+            "certificate_hash": "025f30b7cea0ebe2e6b45f3e8660fea6edbb8764"
+          }
+        },
+        {
+          "client_id": "1094989682019-n63k81scevk9oil8f4ulbd080ef0curr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_y2TBwSlr65jos3BhJvWWMBzdZLtZmqQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1094989682019-n63k81scevk9oil8f4ulbd080ef0curr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
