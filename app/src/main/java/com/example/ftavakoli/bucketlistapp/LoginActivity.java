@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -21,6 +22,7 @@ public class LoginActivity extends AppCompatActivity {
     //declaring the variables
     Button loginBtn;
     EditText passwordEditTxt, emailEditTxt;
+    TextView errorTxtView;
     //declaring instance of firebase
 
     private FirebaseAuth myFireBaseAuth;
@@ -34,6 +36,7 @@ public class LoginActivity extends AppCompatActivity {
         emailEditTxt = findViewById(R.id.emailEditText);
         passwordEditTxt = findViewById(R.id.passwordEditText);
         loginBtn = findViewById(R.id.loginButton);
+        errorTxtView = findViewById(R.id.ErrorTextView);
 
         //initializing the instance of firebase
         myFireBaseAuth = FirebaseAuth.getInstance();
@@ -45,9 +48,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 //calling a login function
                 login(emailEditTxt.getText().toString(), passwordEditTxt.getText().toString());
-                //going to next pageee
-                Intent intent = new Intent(LoginActivity.this, ItemListActivity.class);
-                startActivity(intent);
+
 
 
 
@@ -77,13 +78,16 @@ public class LoginActivity extends AppCompatActivity {
                     //if it is successful get the user!
                     FirebaseUser user = myFireBaseAuth.getCurrentUser();
                     Toast.makeText(LoginActivity.this, "Hiii User", Toast.LENGTH_SHORT).show();
+                    //going to next pageee
+                    Intent intent = new Intent(LoginActivity.this, ItemListActivity.class);
+                    startActivity(intent);
 
 
                 }else{
                     //if it fails Toast !
                     Log.d(TAG, "Faaaaaaiiiiillllllled!", task.getException());
-                    Toast.makeText(LoginActivity.this, "Authentication Failed", Toast.LENGTH_SHORT).show();
-
+                    //Toast.makeText(LoginActivity.this, "Authentication Failed", Toast.LENGTH_SHORT).show();
+                    errorTxtView.setText("U R entering Wrong Information");
 
 
                 }
