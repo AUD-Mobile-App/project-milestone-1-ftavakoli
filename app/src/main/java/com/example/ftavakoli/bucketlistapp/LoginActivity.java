@@ -57,9 +57,10 @@ public class LoginActivity extends AppCompatActivity {
                 login(emailEditTxt.getText().toString(), passwordEditTxt.getText().toString());
             }
         });
+
+
+
     }
-
-
     //check if the user is login
     @Override
     protected void onStart() {
@@ -68,9 +69,12 @@ public class LoginActivity extends AppCompatActivity {
         //currentUser.getUid();
     }
 
+
+
+
+
     //login function
     private void login(String email, String password){
-
 
         //login and adding a listener to check if the email and password are correct/no
         myFireBaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -80,23 +84,16 @@ public class LoginActivity extends AppCompatActivity {
                 if(task.isSuccessful()){
                     //if it is successful get the user!
                     FirebaseUser user = myFireBaseAuth.getCurrentUser();
-                    Toast.makeText(LoginActivity.this, "Hiii User", Toast.LENGTH_SHORT).show();
+                   //Toast.makeText(LoginActivity.this, "Hiii User", Toast.LENGTH_SHORT).show();
                     //going to next pageee
                     Intent intent = new Intent(LoginActivity.this, ItemListActivity.class);
                     startActivity(intent);
-
-
                 }else{
                     //if it fails Toast !
                     Log.d(TAG, "Faaaaaaiiiiillllllled!", task.getException());
                     //Toast.makeText(LoginActivity.this, "Authentication Failed", Toast.LENGTH_SHORT).show();
                     errorTxtView.setText("U R entering Wrong Information");
-
-
                 }
-
-
-
             }
         });
     }

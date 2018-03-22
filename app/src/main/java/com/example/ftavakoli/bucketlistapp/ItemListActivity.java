@@ -1,11 +1,15 @@
 package com.example.ftavakoli.bucketlistapp;
 
+import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -45,7 +49,8 @@ public class ItemListActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         FirebaseUser user = firebaseAuth.getCurrentUser();
 
-
+        adapter = new ListAdapter(ItemListActivity.this,arrayList);
+        listView.setAdapter(adapter);
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Students")
         .child(user.getUid());
@@ -62,11 +67,12 @@ public class ItemListActivity extends AppCompatActivity {
                     ItemDataStore value = d.getValue(ItemDataStore.class);
                     Log.d(TAG, "Value is: " + value.getName());
                     arrayList.add(value);
-                    adapter = new ListAdapter(ItemListActivity.this,arrayList);
-                    listView.setAdapter(adapter);
-                    //adapter.notifyDataSetChanged();
+                    adapter.notifyDataSetChanged();
+
                 }
             }
+
+
             @Override
             public void onCancelled(DatabaseError error) {
                 // Failed to read value
@@ -76,7 +82,14 @@ public class ItemListActivity extends AppCompatActivity {
 
 
 
+            addFab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(ItemListActivity.this, AddItemActivity.class);
+                    startActivity(intent);
 
+                }
+            });
 
 
 
