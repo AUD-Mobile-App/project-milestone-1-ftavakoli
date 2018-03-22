@@ -47,11 +47,14 @@ public class LoginActivity extends AppCompatActivity {
 
 
                 //calling a login function
+                if(emailEditTxt.getText().toString().equals("") && passwordEditTxt.getText().toString().equals(""))
+                    errorTxtView.setText("U have not provided any information!!!!!");
+                else if(emailEditTxt.getText().toString().equals(""))
+                    errorTxtView.setText("Enter Your Email Address");
+                else if(passwordEditTxt.getText().toString().equals(""))
+                    errorTxtView.setText("Enter Your Password!");
+                    else
                 login(emailEditTxt.getText().toString(), passwordEditTxt.getText().toString());
-
-
-
-
             }
         });
     }
