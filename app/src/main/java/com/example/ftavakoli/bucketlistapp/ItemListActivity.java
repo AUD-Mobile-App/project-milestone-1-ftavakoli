@@ -87,6 +87,7 @@ public class ItemListActivity extends AppCompatActivity {
                 public void onClick(View view) {
                     Intent intent = new Intent(ItemListActivity.this, AddItemActivity.class);
                     startActivity(intent);
+                    Toast.makeText(ItemListActivity.this, "U are in the AddItemActivity", Toast.LENGTH_SHORT).show();
 
                 }
             });
